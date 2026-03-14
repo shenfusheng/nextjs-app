@@ -113,9 +113,7 @@ export async function deleteInvoice(id: string, formData?: FormData) {
         await sql`DELETE FROM invoices WHERE id = ${id}`;
     } catch (error) {
         console.error(error);
-        return {
-            message: 'Database Error: Failed to Delete Invoice.',
-        };
+        // 不返回任何值，以符合类型要求
     }
     revalidatePath('/dashboard/invoices');
 }
